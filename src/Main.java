@@ -31,11 +31,11 @@ public class Main
                     System.out.print("Enter the existing name : ");
                     name = new Scanner(System.in).nextLine();
                     System.out.print("Enter the new name : ");
-                    String _name = new Scanner(System.in).nextLine();
-                    nameTree.updateName(name,_name);
-                    break;
+                    String newName = new Scanner(System.in).nextLine();
+                    nameTree.updateName(name,newName);
+                        break;
                 case 4:
-                    //DisplayNameTree(nameTree.root,"");
+                    //DisplayNameTree(nameTree.root,""); // This is my own display method
                     DisplayNameTree(nameTree.root, "", true); //This method is not fully mine. But it looks way better than mine.
                     break;
                 case 5:
@@ -49,23 +49,23 @@ public class Main
         while(ans != 5);
     }
 
-    private static void DisplayNameTree(Tree node, String space)
+    private static void DisplayNameTree(TreeNode node, String space)
     {
         System.out.printf("%s %s:%d\n",space,node.letter,node.nameCounter);
 
-        for (Tree child : node.children.values())
-            DisplayNameTree(child, space + "  ");
+        for (TreeNode child : node.childrenList.values())
+            DisplayNameTree(child, space + "  "); //2 spaces for each child (line). // Each 2-space means height/depth of the node.
     }
 
 
-    //I took this DisplayTree method from stackoverflow. It is not fully mine.
-    private static void DisplayNameTree(Tree node, String prefix, boolean isTail)
+    //I got help from ChatGPT for this DisplayNameTree method.Because it looks better. It is not fully mine. My method is the upper one.
+    private static void DisplayNameTree(TreeNode node, String prefix, boolean isTail)
     {
         if (node != null)
         {
             System.out.println(prefix + (isTail ? "└── " : "├── ") + node.letter + ":" + node.nameCounter);
 
-            List<Tree> children = new ArrayList<>(node.children.values());
+            List<TreeNode> children = new ArrayList<>(node.childrenList.values());
             for (int i = 0; i < children.size(); i++)
             {
                 boolean isLast = (i == children.size() - 1);

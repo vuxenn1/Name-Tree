@@ -1,16 +1,17 @@
 public class NameTree
 {
-    public Tree root;
+    public TreeNode root;
 
     public NameTree()
     {
-        this.root = new Tree('\0');
+        this.root = new TreeNode('\0'); // Root's value is null
     }
 
     public void addName(String name)
     {
-        Tree current = root;
-        for (char a : toUpperCaseCharArray(name))
+        TreeNode current = root;
+        char[] nameArray = toUpperCaseCharArray(name);
+        for (char a : nameArray)
         {
             current.addChild(a);
             current = current.getChild(a);
@@ -19,26 +20,27 @@ public class NameTree
 
     public void removeName(String name)
     {
-        Tree current = root;
+        TreeNode current = root;
+        char[] nameArray = toUpperCaseCharArray(name);
 
-        for (char a : toUpperCaseCharArray(name))
+        for (char a : nameArray)
         {
-            if (!current.children.containsKey(a))
+            if (!current.childrenList.containsKey(a))
             {
                 System.out.println("Name " + name + " not in tree.");
                 return;
             }
-            current = current.getChild(a);
+            current = current.getChild(a); // current = current.next until it's the last letter of the name.
         }
 
-        for (int i = name.length() - 1; i >= 0; i--)
+        for (int i = name.length() - 1; i >= 0; i--) //Iterating backwards from the last letter's node of the name to first letter.
         {
             char a = Character.toUpperCase(name.charAt(i));
 
             current.nameCounter--;
 
             if (current.nameCounter == 0 && current.parent != null)
-                current.parent.children.remove(a);
+                current.parent.childrenList.remove(a);
 
             current = current.parent;
         }
@@ -56,11 +58,11 @@ public class NameTree
         addName(nameToAdd);
     }
 
-    private char[] toUpperCaseCharArray(String input)
+    private char[] toUpperCaseCharArray(String name)
     {
-        char[] result = new char[input.length()];
-        for (int i = 0; i < input.length(); i++)
-            result[i] = Character.toUpperCase(input.charAt(i));
+        char[] result = new char[name.length()];
+        for (int i = 0; i < name.length(); i++)
+            result[i] = Character.toUpperCase(name.charAt(i));
         return result;
     }
 }
