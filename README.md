@@ -1,7 +1,7 @@
-# 🌳 Name Tree Manager
+# Name Tree Manager
 A tree-based data structure implementation for efficient name storage and management in Java.
 
-## 📖 Overview
+## Overview
 Name Tree Manager is a specialized tree data structure where each node represents a letter, and paths from root to leaf form names. This implementation provides efficient storage and retrieval of names while maintaining a hierarchical structure.
 
 ```
@@ -17,7 +17,7 @@ Example Tree Structure:
     │       └── X:1
 ```
 
-## ✨ Features
+## Features
 - **Add Names**: Efficiently insert new names into the tree
 - **Remove Names**: Delete existing names while maintaining tree structure
 - **Update Names**: Modify existing names in the tree
@@ -25,7 +25,7 @@ Example Tree Structure:
 - **Case Insensitive**: Automatically handles case sensitivity
 - **Memory Efficient**: Shares common prefixes among names
 
-## 🛠️ Implementation Details
+## Implementation Details
 
 ### TreeNode Class
 ```java
@@ -49,7 +49,7 @@ public class NameTree {
 }
 ```
 
-## 🎯 How It Works
+## How It Works
 
 ### Adding Names
 When adding a name (e.g., "JOHN"):
@@ -80,7 +80,7 @@ After adding "JOE":
             └── E:1
 ```
 
-## 💡 Usage Example
+## Usage Example
 ```java
 public static void main(String[] args) {
     NameTree nameTree = new NameTree();
@@ -100,7 +100,7 @@ public static void main(String[] args) {
 }
 ```
 
-## 🔍 Key Features Explained
+## Key Features Explained
 
 ### Name Counter
 - Each node maintains a counter showing how many names pass through it
@@ -119,26 +119,26 @@ Names sharing common prefixes share nodes:
 - Reduces memory usage for similar names
 - Efficient for large datasets with common prefixes
 
-## ⚙️ Menu Options
+## Menu Options
 1. **Add a name**: Insert new name into the tree
 2. **Remove a name**: Delete existing name
 3. **Update a name**: Change existing name to new name
 4. **Display Tree**: Show current tree structure
 5. **Quit**: Exit program
 
-## 🎨 Implementation Notes
+## Implementation Notes
 - Uses HashMap for efficient child node lookup
 - Maintains parent references for easy tree traversal
 - Automatically converts names to uppercase
 - Preserves tree structure during deletions
 
-## 🌟 Best Practices
+## Best Practices
 - Always check if name exists before removal
 - Use display function to verify tree structure
 - Keep track of name counter for accurate representation
 - Handle empty strings and null cases
 
-## 🚀 Possible Enhancements
+## Possible Enhancements
 - Name search functionality
 - Prefix-based name suggestions
 - Case-sensitive mode option
