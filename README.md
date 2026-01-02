@@ -1,8 +1,8 @@
 # Name Tree Manager
-A tree-based data structure implementation for efficient name storage and management in Java.
+A Tree-based data structure implementation for efficient name storage and management in Java.
 
 ## Overview
-Name Tree Manager is a specialized tree data structure where each node represents a letter, and paths from root to leaf form names. This implementation provides efficient storage and retrieval of names while maintaining a hierarchical structure.
+Name Tree is a specialized tree data structure where each node represents a letter. This implementation provides efficient storage and retrieval of names while maintaining a hierarchical structure.
 
 ```
 Example Tree Structure:
@@ -99,49 +99,6 @@ public static void main(String[] args) {
     nameTree.removeName("Joe");
 }
 ```
-
-## Key Features Explained
-
-### Name Counter
-- Each node maintains a counter showing how many names pass through it
-- Helps in efficient removal and updates
-- Used for cleaning up unused branches
-
-### Tree Display
-- Uses ASCII characters to create visual tree structure
-- Shows letter and name counter at each node
-- Indentation indicates depth level
-- Uses └── for last child and ├── for other children
-
-### Memory Efficiency
-Names sharing common prefixes share nodes:
-- "John" and "Joe" share "J" and "O" nodes
-- Reduces memory usage for similar names
-- Efficient for large datasets with common prefixes
-
-## Menu Options
-1. **Add a name**: Insert new name into the tree
-2. **Remove a name**: Delete existing name
-3. **Update a name**: Change existing name to new name
-4. **Display Tree**: Show current tree structure
-5. **Quit**: Exit program
-
-## Implementation Notes
-- Uses HashMap for efficient child node lookup
-- Maintains parent references for easy tree traversal
-- Automatically converts names to uppercase
-- Preserves tree structure during deletions
-
-## Best Practices
-- Always check if name exists before removal
-- Use display function to verify tree structure
-- Keep track of name counter for accurate representation
-- Handle empty strings and null cases
-
-## Possible Enhancements
-- Name search functionality
-- Prefix-based name suggestions
-- Case-sensitive mode option
 - Name statistics and analytics
 - Export/Import tree structure
 - Pattern matching and wildcards
